@@ -1,6 +1,6 @@
-List zero,one, two, three, four, five, six, seven, eight, nine;
+List zero, one, two, three, four, five, six, seven, eight, nine;
 List mytime = <List>[
-   zero = <int>[
+  zero = <int>[
     0,
     0,
     0,
@@ -35,5 +35,59 @@ List mytime = <List>[
     1,
     0,
     0,
+  ],
+  four = <int>[
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+  ],
+  five = <int>[
+    1,
+    0,
+    1,
+    1,
+    1,
+    0,
+    1,
+  ],
+  six = <int>[
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+  ],
+  seven = <int>[
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+  ],
+  eight = <int>[
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+  ],
+  nine = <int>[
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
   ],
 ];
