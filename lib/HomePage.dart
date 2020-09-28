@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Timer _timer;
   int minuteTenth = 0, minuteUnit = 0, secondTenth = 0, secondUnit = 0;
 
-  String showtime = "10 Seconds Countdown";
+  String showtime = "120 Seconds Countdown";
   bool _isbuttondisabled = false;
   void startTimer() {
     _counter = (120);
