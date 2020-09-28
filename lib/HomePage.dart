@@ -1,7 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:timerapp/TestLED.dart';
+import 'Widgets/minutesTenth.dart';
+import 'Widgets/minutesUnit.dart';
+import 'Widgets/secondsTenth.dart';
+import 'Widgets/secondsUnit.dart';
 
 class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
@@ -10,12 +12,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Duration _duration = new Duration(seconds: (10));
 
-  int _counter = (10);
+  int _counter = 120;
   Timer _timer;
+  int minuteTenth = 0, minuteUnit = 0, secondTenth = 0, secondUnit = 0;
+
   String showtime = "10 Seconds Countdown";
   bool _isbuttondisabled = false;
   void startTimer() {
-    _counter = (10);
+    _counter = (120);
 
     _timer = Timer.periodic(
       Duration(seconds: 1),
@@ -27,6 +31,10 @@ class _MyHomePageState extends State<MyHomePage> {
             _duration = new Duration(seconds: _counter);
             showtime = "${_duration.inMinutes}:${_duration.inSeconds % 60}";
             print("${_duration.inMinutes}:${_duration.inSeconds % 60} ");
+            minuteTenth = ((_duration.inMinutes) / 10).floor();
+            minuteUnit = ((_duration.inMinutes) % 10).round();
+            secondTenth = ((_duration.inSeconds % 60) / 10).floor();
+            secondUnit = ((_duration.inSeconds % 60) % 10).round();
           });
         } else {
           _timer.cancel();
@@ -41,38 +49,80 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("Timer Tutorial"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _counter > 0 ? Text("") : callbackfunction(),
-            Text(
-              "$showtime",
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _counter > 0
+              ? Text(
+                  "Count Down Timer | Counting...${(_counter)} ",
+                  style: TextStyle(
+                    color: Colors.green,
+                    decoration: TextDecoration.underline,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : callbackfunction(),
+          Container(
+           
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MyMinuteTenth(minuteTenth),
+                MyMinuteUnit(minuteUnit),
+                Container(
+                  height: 150,
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      ":",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
+                MySecondsTenth(secondTenth),
+                MySecondsUnit(secondUnit),
+              ],
             ),
-            RaisedButton(
-              elevation: 10,
-              onPressed: _isbuttondisabled == false ? startTimer : null,
-              child: Text("Start Timer"),
+          ),
+          Container(
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RaisedButton(
+                  elevation: 10,
+                  onPressed: _isbuttondisabled == false ? startTimer : null,
+                  child: Text("Start Timer"),
+                ),
+                RaisedButton(
+                  elevation: 10,
+                  onPressed: _isbuttondisabled == true ? setcounterZero : null,
+                  child: Text("Stop Timer"),
+                ),
+              ],
             ),
-            RaisedButton(
-              elevation: 10,
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LEDTest()));
-              },
-              child: Text("Next Page"),
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+
+  setcounterZero() {
+    setState(() {
+      _counter = 0;
+    });
+    minuteTenth = 0;
+    minuteUnit = 0;
+    secondTenth = 0;
+    secondUnit = 0;
   }
 }
 

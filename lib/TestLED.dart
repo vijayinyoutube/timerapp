@@ -20,13 +20,12 @@ class _LEDTestState extends State<LEDTest> {
       backgroundColor: Colors.black,
       body: Center(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,          
           children: [
-            MyMinuteTenth(0),
-            MyMinuteUnit(1),
-            MySecondsTenth(2),
-            MySecondsUnit(3),
+            MyMinuteTenth(5),
+            MyMinuteUnit(4),
+            MySecondsTenth(7),
+            MySecondsUnit(6),
           ],
         ),
       ),
