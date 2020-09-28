@@ -1,13 +1,13 @@
 List zero, one, two, three, four, five, six, seven, eight, nine;
 List mytime = <List>[
   zero = <int>[
+    1,
+    1,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
+    1,
+    1,
+    1,
   ],
   one = <int>[
     0,
@@ -56,12 +56,12 @@ List mytime = <List>[
   ],
   six = <int>[
     1,
-    1,
-    1,
-    1,
-    1,
     0,
-    0,
+    1,
+    1,
+    1,
+    1,
+    1,
   ],
   seven = <int>[
     1,
