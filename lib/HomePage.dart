@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _counter--;
             _duration = new Duration(seconds: _counter);
             showtime = "${_duration.inMinutes}:${_duration.inSeconds % 60}";
-            print("${_duration.inMinutes}:${_duration.inSeconds % 60} ");
+            print(showtime);
             minuteTenth = ((_duration.inMinutes) / 10).floor();
             minuteUnit = ((_duration.inMinutes) % 10).round();
             secondTenth = ((_duration.inSeconds % 60) / 10).floor();
@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Timer Tutorial"),
+        title: Text("Count Down Timer App"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -68,7 +68,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               : callbackfunction(),
           Container(
-           
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
