@@ -17,6 +17,8 @@ A digital count down timer app | Flutter app
 
 This app is a simple digital count down timer app built for demo purpose.
 
+Check out the video tutorial for this app 👉 : https://youtu.be/G8GIJhVqFQA
+
 To know more awesome content about Flutter., 
 
 Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
